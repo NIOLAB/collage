@@ -48,6 +48,9 @@ class OneImage extends CollageGenerator
         $width = $this->file->getWidth() - $this->file->getPadding();
         $height = $this->file->getHeight() - $this->file->getPadding();
 
+        $width = ceil($width);
+        $height = ceil($height);
+
         $this->images = collect([$this->images->first()->fit($width, $height)]);
     }
 }

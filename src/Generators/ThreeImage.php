@@ -44,6 +44,10 @@ class ThreeImage extends CollageGenerator
     {
         list($width, $height, $largeWidth) = $this->getWidthSize();
 
+        $width = ceil($width);
+        $height = ceil($height);
+        $largeWidth = ceil($largeWidth);
+
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, $height), 'top-left');
 
@@ -60,6 +64,10 @@ class ThreeImage extends CollageGenerator
     public function oneTopTwoBottom()
     {
         list($width, $height, $largeWidth) = $this->getWidthSize();
+
+        $width = ceil($width);
+        $height = ceil($height);
+        $largeWidth = ceil($largeWidth);
 
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($largeWidth, $height), 'top');
@@ -78,6 +86,10 @@ class ThreeImage extends CollageGenerator
     {
         list($width, $height, $largeHeight) = $this->getHeightSize();
 
+        $width = ceil($width);
+        $height = ceil($height);
+        $largeHeight = ceil($largeHeight);
+
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, $height), 'top-left');
 
@@ -94,6 +106,11 @@ class ThreeImage extends CollageGenerator
     public function oneLeftTwoRight()
     {
         list($width, $height, $largeHeight) = $this->getHeightSize();
+
+        $width = ceil($width);
+        $height = ceil($height);
+        $largeHeight = ceil($largeHeight);
+
 
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, $largeHeight), 'left');
@@ -113,6 +130,9 @@ class ThreeImage extends CollageGenerator
         $width = $this->file->getWidth() - $this->file->getPadding();
         $height = $this->file->getHeight() / 3 - $this->file->getPadding() * 0.75;
 
+        $width = ceil($width);
+        $height = ceil($height);
+
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, ceil($height)), 'top');
 
@@ -130,6 +150,9 @@ class ThreeImage extends CollageGenerator
     {
         $width = $this->file->getWidth() / 3 - $this->file->getPadding() * 0.75;
         $height = $this->file->getHeight() - $this->file->getPadding();
+
+        $width = ceil($width);
+        $height = ceil($height);
 
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit(ceil($width), $height), 'left');

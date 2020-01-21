@@ -85,6 +85,8 @@ class TwoImage extends CollageGenerator
     {
         $height = $this->file->getHeight() / 2 - ceil($this->file->getPadding() * 0.75);
 
+        $height = ceil($height);
+
         $images = collect();
         foreach ($this->images as $image) {
             $images->push($image->fit($this->file->getWidth() - $this->file->getPadding(), $height));
@@ -99,6 +101,8 @@ class TwoImage extends CollageGenerator
     protected function resizeVerticalImages()
     {
         $width = $this->file->getWidth() / 2 - ceil($this->file->getPadding() * 0.75);
+        $width = ceil($width);
+
         $images = collect();
         foreach ($this->images as $image) {
             $images->push($image->fit($width, $this->file->getHeight() - $this->file->getPadding()));

@@ -45,6 +45,9 @@ class FourImage extends CollageGenerator
         $width = $this->file->getWidth() - $this->file->getPadding();
         $height = $this->file->getHeight() / 4 - $this->file->getPadding() * 0.75;
 
+        $width = ceil($width);
+        $height = ceil($height);
+
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, floor($height)), 'top');
 
@@ -66,6 +69,9 @@ class FourImage extends CollageGenerator
         $width = $this->file->getWidth() / 4 - $this->file->getPadding() * 0.75;
         $height = $this->file->getHeight() - $this->file->getPadding();
 
+        $width = ceil($width);
+        $height = ceil($height);
+
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit(floor($width), $height), 'left');
 
@@ -85,6 +91,9 @@ class FourImage extends CollageGenerator
     public function grid()
     {
         list($width, $height) = $this->getSmallSize();
+
+        $width = ceil($width);
+        $height = ceil($height);
 
         $one = $this->images->get(0);
         $this->canvas->insert($one->fit($width, $height), 'top-left');
